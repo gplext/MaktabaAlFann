@@ -3847,7 +3847,7 @@ p:last-child { margin-bottom: 0; }
 @media (max-width: 768px) {
   .sto-list { padding-left: 1.25rem; padding-right: 1.25rem; }
 }
-                                         
+
 /* =============================================================================
    ARTIST PORTAL  (#artist-portal)
    ============================================================================= */
@@ -4074,3 +4074,533 @@ p:last-child { margin-bottom: 0; }
 /* Artists page equivalent spacing */
 .art-page-top  { margin-bottom: 2rem; }
 .art-search-wrap { margin-top: 0.5rem; }
+
+
+/* =============================================================================
+   ADMIN CONSOLE
+   ============================================================================= */
+
+/* Layout */
+.adm-wrap {
+  min-height: 100vh;
+  background: hsl(40,20%,94%);
+  font-family: var(--font-sans);
+  padding-top: 72px;
+}
+
+/* Top bar */
+.adm-topbar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 2rem;
+  height: 60px;
+  background: hsl(20,25%,15%);
+  border-bottom: 2px solid hsl(42,55%,40%);
+  position: sticky; top: 0; z-index: 100;
+}
+.adm-topbar-left { display: flex; align-items: center; gap: 1rem; }
+.adm-topbar-logo {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: hsl(42,70%,60%);
+  letter-spacing: .05em;
+}
+.adm-topbar-title {
+  font-size: 0.7rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: hsl(40,20%,70%);
+  padding-left: 1rem;
+  border-left: 1px solid hsl(40,15%,35%);
+}
+.adm-topbar-right { display: flex; align-items: center; gap: .5rem; }
+
+/* Tabs */
+.adm-tabs {
+  display: flex;
+  gap: 0;
+  padding: 0 2rem;
+  background: hsl(20,20%,18%);
+  border-bottom: 1px solid hsl(40,15%,30%);
+}
+.adm-tab {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: hsl(40,20%,65%);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: .85rem 1.25rem;
+  cursor: pointer;
+  display: flex; align-items: center; gap: .5rem;
+  transition: color .2s, border-color .2s;
+}
+.adm-tab:hover { color: hsl(42,65%,65%); }
+.adm-tab-active {
+  color: hsl(42,70%,60%);
+  border-bottom-color: hsl(42,60%,50%);
+}
+
+/* Tab count badge */
+.adm-tab-count {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 20px; height: 18px;
+  padding: 0 5px;
+  border-radius: 9px;
+  background: hsl(40,20%,35%);
+  color: hsl(40,20%,80%);
+  font-size: 0.65rem;
+  font-weight: 600;
+}
+.adm-tab-count-alert {
+  background: hsl(0,60%,50%);
+  color: white;
+}
+
+/* Content area */
+.adm-content {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Section header */
+.adm-section-header {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.adm-section-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: hsl(20,20%,20%);
+  margin: 0 0 .2rem;
+}
+.adm-section-sub {
+  font-size: 0.8rem;
+  color: hsl(20,10%,55%);
+  margin: 0;
+}
+
+/* Table */
+.adm-table-wrap {
+  background: white;
+  border: 1px solid hsl(40,20%,85%);
+  border-radius: 8px;
+  overflow: auto;
+  box-shadow: 0 1px 4px rgba(0,0,0,.06);
+}
+.adm-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+}
+.adm-th {
+  font-size: 0.65rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: hsl(20,10%,50%);
+  background: hsl(40,20%,97%);
+  padding: .7rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid hsl(40,20%,88%);
+  white-space: nowrap;
+}
+.adm-tr:not(:last-child) td { border-bottom: 1px solid hsl(40,15%,92%); }
+.adm-tr:hover td { background: hsl(42,30%,98%); }
+.adm-td {
+  padding: .7rem 1rem;
+  color: hsl(20,20%,25%);
+  vertical-align: middle;
+}
+.adm-td-bio {
+  max-width: 200px;
+  font-size: 0.78rem;
+  color: hsl(20,10%,50%);
+}
+.adm-td-empty {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: hsl(20,10%,60%);
+  font-style: italic;
+}
+
+/* Buttons */
+.adm-btn {
+  display: inline-flex; align-items: center; gap: .4rem;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  letter-spacing: .06em;
+  padding: .5rem 1rem;
+  border-radius: 4px;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: all .15s;
+  white-space: nowrap;
+}
+.adm-btn-primary {
+  background: hsl(42,60%,40%);
+  color: white;
+  border-color: hsl(42,60%,35%);
+}
+.adm-btn-primary:hover { background: hsl(42,65%,35%); }
+.adm-btn-ghost {
+  background: transparent;
+  color: hsl(40,20%,70%);
+  border-color: hsl(40,20%,40%);
+}
+.adm-btn-ghost:hover { background: hsl(40,20%,25%); color: white; }
+.adm-btn-outline {
+  background: transparent;
+  color: hsl(42,60%,55%);
+  border-color: hsl(42,50%,45%);
+}
+.adm-btn-outline:hover { background: hsl(42,55%,40%); color: white; }
+.adm-btn-danger {
+  background: hsl(0,55%,45%);
+  color: white;
+  border-color: hsl(0,55%,40%);
+}
+.adm-btn-danger:hover { background: hsl(0,60%,38%); }
+.adm-btn-sm { padding: .28rem .65rem; font-size: 0.68rem; }
+.adm-btn-approve { background: hsl(140,50%,35%); color: white; border-color: hsl(140,50%,30%); }
+.adm-btn-approve:hover { background: hsl(140,55%,30%); }
+.adm-btn-reject  { background: hsl(0,55%,45%); color: white; border-color: hsl(0,55%,40%); }
+.adm-btn-reject:hover { background: hsl(0,60%,38%); }
+
+/* Forms */
+.adm-field { margin-bottom: 1rem; }
+.adm-label {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: hsl(20,15%,45%);
+  margin-bottom: .4rem;
+  font-weight: 600;
+}
+.adm-input, .adm-select, .adm-textarea {
+  width: 100%;
+  padding: .55rem .8rem;
+  border: 1.5px solid hsl(40,20%,80%);
+  border-radius: 4px;
+  background: white;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: hsl(20,20%,20%);
+  transition: border-color .15s;
+  box-sizing: border-box;
+}
+.adm-input:focus, .adm-select:focus, .adm-textarea:focus {
+  outline: none;
+  border-color: hsl(42,55%,50%);
+  box-shadow: 0 0 0 3px hsla(42,55%,50%,.12);
+}
+.adm-textarea { resize: vertical; min-height: 90px; }
+.adm-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* Status badge */
+.adm-status-badge {
+  display: inline-block;
+  padding: .2rem .6rem;
+  border-radius: 99px;
+  font-size: 0.65rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: white;
+}
+
+/* Approvals section */
+.adm-approvals-wrap { }
+
+/* Modal */
+.adm-modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(10,6,4,.55);
+  z-index: 500;
+  display: flex; align-items: center; justify-content: center;
+  padding: 2rem;
+}
+.adm-modal-box {
+  background: white;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 640px;
+  max-height: 85vh;
+  display: flex; flex-direction: column;
+  box-shadow: 0 20px 60px rgba(0,0,0,.25);
+}
+.adm-modal-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid hsl(40,20%,88%);
+}
+.adm-modal-title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  margin: 0;
+  color: hsl(20,20%,20%);
+}
+.adm-modal-close {
+  background: none; border: none; cursor: pointer;
+  font-size: 1.2rem; color: hsl(20,10%,55%);
+  padding: .25rem; line-height: 1;
+}
+.adm-modal-body {
+  padding: 1.5rem;
+  overflow-y: auto;
+}
+.adm-modal-footer {
+  display: flex; justify-content: flex-end; gap: .75rem;
+  padding: 1rem 1.5rem;
+  border-top: 1px solid hsl(40,20%,88%);
+}
+
+/* Login screen */
+.adm-wrap > .adm-login-box {
+  max-width: 420px;
+  margin: 8vh auto 0;
+  background: white;
+  border: 1px solid hsl(40,20%,85%);
+  border-radius: 12px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,.08);
+  text-align: center;
+}
+.adm-login-logo {
+  display: flex; align-items: center; justify-content: center; gap: .75rem;
+  margin-bottom: 1.5rem;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: hsl(20,20%,30%);
+}
+.adm-login-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: hsl(20,20%,20%);
+  margin: 0 0 .35rem;
+}
+.adm-login-sub {
+  font-size: 0.85rem;
+  color: hsl(20,10%,55%);
+  margin: 0 0 1.75rem;
+}
+.adm-login-hint {
+  font-size: 0.75rem;
+  color: hsl(20,10%,65%);
+  margin-top: 1.5rem;
+}
+.adm-error {
+  margin-top: 1rem;
+  padding: .6rem 1rem;
+  background: hsl(0,50%,96%);
+  border: 1px solid hsl(0,50%,82%);
+  border-radius: 4px;
+  color: hsl(0,55%,40%);
+  font-size: 0.82rem;
+}
+
+/* Change password modal */
+.adm-pw-modal {
+  position: fixed; inset: 0;
+  background: rgba(10,6,4,.5);
+  z-index: 600;
+  display: flex; align-items: center; justify-content: center;
+  padding: 2rem;
+}
+
+/* Action buttons in table rows */
+.adm-act-btn {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  letter-spacing: .05em;
+  padding: .25rem .65rem;
+  border-radius: 3px;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: all .15s;
+}
+.adm-edit {
+  background: hsl(210,55%,92%);
+  color: hsl(210,60%,35%);
+  border-color: hsl(210,45%,78%);
+}
+.adm-edit:hover {
+  background: hsl(210,55%,40%);
+  color: white;
+}
+.adm-del {
+  background: hsl(0,50%,94%);
+  color: hsl(0,55%,45%);
+  border-color: hsl(0,45%,80%);
+}
+.adm-del:hover {
+  background: hsl(0,55%,45%);
+  color: white;
+}
+
+/* Admin table — plain th/td (paintings & artists tabs) */
+.adm-table thead tr {
+  background: hsl(40,20%,97%);
+}
+.adm-table th {
+  font-size: 0.65rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: hsl(20,10%,50%);
+  padding: .7rem 1rem;
+  text-align: left;
+  border-bottom: 2px solid hsl(40,20%,86%);
+  white-space: nowrap;
+  font-weight: 600;
+}
+.adm-table td {
+  padding: .65rem 1rem;
+  color: hsl(20,20%,25%);
+  font-size: 0.83rem;
+  vertical-align: middle;
+  border-bottom: 1px solid hsl(40,15%,92%);
+}
+.adm-table tbody tr:last-child td { border-bottom: none; }
+.adm-table tbody tr:hover td { background: hsl(42,30%,98%); }
+
+/* Special cell types */
+.adm-id {
+  color: hsl(20,10%,60%);
+  font-size: 0.75rem;
+  width: 48px;
+  font-variant-numeric: tabular-nums;
+}
+.adm-bold { font-weight: 600; color: hsl(20,25%,18%); }
+.adm-badge {
+  display: inline-block;
+  padding: .18rem .6rem;
+  border-radius: 99px;
+  background: hsl(40,30%,90%);
+  color: hsl(20,25%,35%);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: .03em;
+}
+
+/* ── Admin Modal fix ── */
+.adm-modal-overlay {
+  position: fixed !important;
+  inset: 0 !important;
+  background: rgba(10,6,4,.6) !important;
+  z-index: 9000 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  overflow-y: auto;
+}
+.adm-modal {
+  background: white;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 700px;
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 24px 70px rgba(0,0,0,.35);
+  overflow: hidden;
+}
+.adm-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 1.5rem;
+  border-bottom: 1px solid hsl(40,20%,88%);
+  background: hsl(40,20%,97%);
+  flex-shrink: 0;
+}
+.adm-modal-header h3 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: hsl(20,20%,20%);
+  margin: 0;
+}
+.adm-modal-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  color: hsl(20,10%,55%);
+  padding: .3rem .5rem;
+  border-radius: 4px;
+  line-height: 1;
+  transition: background .15s;
+}
+.adm-modal-close:hover { background: hsl(0,50%,94%); color: hsl(0,55%,45%); }
+.adm-modal-body {
+  padding: 1.5rem;
+  overflow-y: auto;
+  flex: 1;
+}
+.adm-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: .75rem;
+  padding: 1rem 1.5rem;
+  border-top: 1px solid hsl(40,20%,88%);
+  background: hsl(40,20%,97%);
+  flex-shrink: 0;
+}
+
+/* Form grid inside modal */
+.adm-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.adm-col2 { grid-column: span 2; }
+.adm-field { display: flex; flex-direction: column; }
+.adm-label {
+  font-size: 0.68rem;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  color: hsl(20,15%,45%);
+  margin-bottom: .35rem;
+  font-weight: 600;
+}
+.adm-input, .adm-select, .adm-textarea {
+  padding: .5rem .75rem;
+  border: 1.5px solid hsl(40,20%,80%);
+  border-radius: 4px;
+  background: white;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: hsl(20,20%,20%);
+  transition: border-color .15s, box-shadow .15s;
+  box-sizing: border-box;
+  width: 100%;
+}
+.adm-input:focus, .adm-select:focus, .adm-textarea:focus {
+  outline: none;
+  border-color: hsl(42,55%,50%);
+  box-shadow: 0 0 0 3px hsla(42,55%,50%,.12);
+}
+.adm-textarea { resize: vertical; min-height: 80px; }
+
+/* Style checkboxes in painting form */
+.adm-styles-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem .75rem;
+  padding: .5rem 0;
+}
+.adm-styles-grid label {
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: .3rem;
+  cursor: pointer;
+  color: hsl(20,20%,30%);
+}

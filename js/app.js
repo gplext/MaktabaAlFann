@@ -330,7 +330,11 @@ function hideLoadingScreen() {
 async function boot() {
   try {
     showLoadingProgress(15);
-    await initDatabase();
+    try {
+      await initDatabase();
+    } catch(dbErr) {
+      console.warn('sql.js failed to load, running without DB (ART_DATA only):', dbErr);
+    }
     showLoadingProgress(70);
 
     Cart.load();
@@ -358,11 +362,16 @@ async function boot() {
   } catch(err) {
     console.error('Maktab-al-fann boot error:', err);
     var screen = document.getElementById('loading-screen');
+    var msg = (err && (err.message || String(err))) || 'Unknown error';
+    var isFileProtocol = location.protocol === 'file:';
+    var hint = isFileProtocol
+      ? 'You are opening the file directly. Use VS Code Live Server (right-click index.html → Open with Live Server) or run: python -m http.server 8080'
+      : 'Check your internet connection — the database requires sql.js from CDN.';
     if (screen) {
       screen.innerHTML = '<div class="loading-emblem">' +
         '<span class="loading-arabic" style="color:hsl(350,50%,50%)">&#9888;</span>' +
         '<span class="loading-name">Failed to load</span>' +
-        '<span class="loading-tagline">' + err.message + '</span>' +
+        '<span class="loading-tagline" style="max-width:520px;font-size:.88rem;line-height:1.7;">' + hint + '</span>' +
         '<button class="btn btn-outline" onclick="location.reload()" style="margin-top:1rem;">Retry</button>' +
         '</div>';
     }

@@ -7,7 +7,7 @@ let DB = null;
 async function initDatabase() {
   // sql.js is loaded via CDN in index.html
   const SQL = await initSqlJs({
-    locateFile: file => `https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.10.3/${file}`
+    locateFile: file => 'assets/sqljs/' + file
   });
 
   DB = new SQL.Database();
